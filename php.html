@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filippinerne Rejse - 15-30 Januar 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102,126,234,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .countdown {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #764ba2;
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+
+        .tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .accommodation-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .accommodation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        .booking-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+        }
+
+        .booking-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 1.3em;
+            box-shadow: 0 5px 15px rgba(245,87,108,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .interactive-map {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 30px 0;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .activity-card-content {
+            padding: 20px;
+        }
+
+        .activity-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .budget-calculator {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .calculator-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            font-size: 1.2em;
+        }
+
+        .calculator-row:last-child {
+            border-bottom: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 3px solid white;
+        }
+
+        .calculator-input {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            width: 150px;
+            text-align: right;
+        }
+
+        .calculator-input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: 50px auto;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.2);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #667eea;
+            z-index: 1;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(253,203,110,0.3);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .info-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .calculator-row {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        .weather-widget {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .weather-widget .temp {
+            font-size: 4em;
+            font-weight: bold;
+        }
+
+        .checklist {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .checklist-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .checklist-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1>🇵🇭  LAK HALA BEL FILIPPINERNE EVENTYR 2026 🇵🇭</h1>
+                <div class="countdown" id="countdown">
+                    Loading countdown...
+                </div>
+                <p style="font-size: 1.3em; margin: 20px 0;">
+                    <strong>15. - 30. Januar 2026</strong><br>
+                    Manila → Davao → Siargao → Manila
+                </p>
+            </div>
+        </div>
+
+        <!-- Interaktivt Kort -->
+        <div class="section">
+            <h2>🗺️ Interaktiv Rejserute</h2>
+            
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: white; margin-bottom: 30px;">
+                <h3 style="color: white; margin-bottom: 20px; text-align: center;">📍 Jeres Rejserute Gennem Filippinerne</h3>
+                <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em;">🏙️</div>
+                        <div style="font-size: 1.3em; font-weight: bold;">MANILA</div>
+                        <div style="font-size: 0.9em;">3 dage</div>
+                    </div>
+                    <div style="font-size: 2em;">→</div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em;">🎂</div>
+                        <div style="font-size: 1.3em; font-weight: bold;">DAVAO</div>
+                        <div style="font-size: 0.9em;">8 dage</div>
+                    </div>
+                    <div style="font-size: 2em;">→</div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em;">🏄</div>
+                        <div style="font-size: 1.3em; font-weight: bold;">SIARGAO</div>
+                        <div style="font-size: 0.9em;">3 dage</div>
+                    </div>
+                    <div style="font-size: 2em;">→</div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em;">✈️</div>
+                        <div style="font-size: 1.3em; font-weight: bold;">MANILA</div>
+                        <div style="font-size: 0.9em;">1 dag</div>
+                    </div>
+                </div>
+            </div>
+
+            <iframe class="interactive-map" 
+                src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d7949617.156066095!2d118.08234267812499!3d11.893546450000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e1!4m5!1s0x3397ca03571ec38b%3A0x69d1d3c2b3c23a70!2sManila%2C%20Metro%20Manila%2C%20Philippines!3m2!1d14.5995124!2d120.9842195!4m5!1s0x325330981cd6b26b%3A0x5a85e0a4a7a98e8b!2sDavao%20City%2C%20Davao%20del%20Sur%2C%20Philippines!3m2!1d7.190708!2d125.45501039999999!4m5!1s0x3301d3ac3cd88139%3A0x33b03580c448a85b!2sSiargao%20Island%2C%20Surigao%20del%20Norte%2C%20Philippines!3m2!1d9.859444299999999!2d126.03906749999999!4m5!1s0x3301d3ac3cd88139%3A0x33b03580c448a85b!2sSiargao%20Island%2C%20Surigao%20del%20Norte%2C%20Philippines!3m2!1d9.859444299999999!2d126.03906749999999!4m5!1s0x3397ca03571ec38b%3A0x69d1d3c2b3c23a70!2sManila%2C%20Metro%20Manila%2C%20Philippines!3m2!1d14.5995124!2d120.9842195!4m5!1s0x3397ca03571ec38b%3A0x69d1d3c2b3c23a70!2sManila%2C%20Metro%20Manila%2C%20Philippines!3m2!1d14.5995124!2d120.9842195!5e0!3m2!1sen!2sdk!4v1234567890123!5m2!1sen!2sdk" 
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+                <div style="background: #f0f9ff; padding: 20px; border-radius: 10px; border-left: 4px solid #0ea5e9;">
+                    <h4 style="color: #0ea5e9; margin-bottom: 10px;">🛫 Fly Distancer</h4>
+                    <p><strong>Manila → Davao:</strong> ~1000 km (2 timer)</p>
+                    <p><strong>Davao → Siargao:</strong> ~250 km (1 time)</p>
+                    <p><strong>Siargao → Manila:</strong> ~850 km (2 timer)</p>
+                </div>
+                
+                <div style="background: #f0fdf4; padding: 20px; border-radius: 10px; border-left: 4px solid #22c55e;">
+                    <h4 style="color: #22c55e; margin-bottom: 10px;">⏱️ Total Rejsetid</h4>
+                    <p><strong>Flyvetid i alt:</strong> ~5 timer</p>
+                    <p><strong>Lufthavnstid:</strong> ~6 timer</p>
+                    <p><strong>Total:</strong> ~11 timer på fly/lufthavne</p>
+                </div>
+                
+                <div style="background: #fef3c7; padding: 20px; border-radius: 10px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #f59e0b; margin-bottom: 10px;">💰 Transport Budget</h4>
+                    <p><strong>3 indenrigsfly:</strong> ~2.400 kr</p>
+                    <p><strong>Lokal transport:</strong> ~750 kr</p>
+                    <p><strong>Total:</strong> ~3.150 kr per person</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; font-size: 1.2em; color: #667eea;">
+                📍 <strong>Rute:</strong> Manila (3 dage) → Davao (8 dage) → Siargao (3 dage) → Manila (1 dag)
+            </p>
+        </div>
+
+        <!-- Tabs for hver destination -->
+        <div class="section">
+            <h2>🏝️ Destinationer & Overnatning</h2>
+            
+            <div class="tabs">
+                <button class="tab active" onclick="openTab(event, 'manila1')">Manila (Start)</button>
+                <button class="tab" onclick="openTab(event, 'davao')">Davao</button>
+                <button class="tab" onclick="openTab(event, 'siargao')">Siargao</button>
+                <button class="tab" onclick="openTab(event, 'manila2')">Manila (Slut)</button>
+            </div>
+
+            <!-- Manila Start -->
+            <div id="manila1" class="tab-content active">
+                <h3 style="color: #667eea; font-size: 2em; margin-bottom: 20px;">📍 MANILA - Hovedstaden (15-18 Januar)</h3>
+                
+                <div class="accommodation-card">
+                    <h3 style="color: #667eea; margin-bottom: 20px;">🏠 Modern Manila Studio - BGC</h3>
+                    
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80" alt="Modern apartment interior">
+                            <div class="overlay">
+                                <strong>Moderne Studio i BGC</strong>
+                                <p>Smart beliggenhed i Bonifacio Global City</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80" alt="BGC Manila skyline">
+                            <div class="overlay">
+                                <strong>BGC Området</strong>
+                                <p>Moderne forretningsdistrikt med grønne områder</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 30px 0;">
+                        <p style="font-size: 1.2em; margin-bottom: 15px;"><strong>📍 Beliggenhed:</strong> Bonifacio High Street, BGC (Bonifacio Global City)</p>
+                        <p style="font-size: 1.1em; margin-bottom: 15px;"><strong>📅 Datoer:</strong> 16-18 Januar 2026 (3 nætter)</p>
+                        <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>✨ Faciliteter:</strong> WiFi, Aircondition, Køkken, Moderne område</p>
+                        
+                        <div class="price-tag">
+                            💰 Pris per person: ~800 kr (Total: ~1.600 kr delt i 2)
+                        </div>
+
+                        <a href="https://www.airbnb.dk/rooms/1411884240851374812?adults=2&check_in=2026-01-16&check_out=2026-01-18" 
+                           target="_blank" 
+                           class="booking-link">
+                            🔗 Se Airbnb Listing
+                        </a>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>💡 Hvorfor dette sted?</strong><br>
+                        BGC er Manilas moderne forretningsdistrikt - sikkert, rent, og fuld af gode restauranter. Perfekt udgangspunkt for jeres første dage!
+                    </div>
+                </div>
+
+                <h3 style="color: #764ba2; font-size: 1.8em; margin: 40px 0 20px 0;">🎯 Ting at lave i Manila</h3>
+                
+                <div class="activity-grid">
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1559629819-638a8f0a4303?w=800&q=80" alt="Intramuros Manila">
+                        <div class="activity-card-content">
+                            <h4>🏰 Intramuros</h4>
+                            <p>Den gamle befæstede by fra spansk kolonitid. Tag en bambus-cykeltur gennem de historiske gader!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> Gratis at gå rundt, cykeltur ~200 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1580837119756-563d608dd119?w=800&q=80" alt="Fort Santiago">
+                        <div class="activity-card-content">
+                            <h4>⚔️ Fort Santiago</h4>
+                            <p>Historisk fort med smukke haver. Perfekt ved solopgang eller solnedgang for stemning!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~75 PHP entre</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800&q=80" alt="National Museum">
+                        <div class="activity-card-content">
+                            <h4>🎨 National Museum Complex</h4>
+                            <p>GRATIS museer! Kunst, antropologi og naturhistorie. Juan Luna's berømte "Spoliarium" maleri.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> GRATIS!</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1583108381667-6ce3ff02e412?w=800&q=80" alt="Manila Ocean Park">
+                        <div class="activity-card-content">
+                            <h4>🐠 Manila Ocean Park</h4>
+                            <p>Stort oceanarium med 14.000 havdyr. Seal shows, pingviner, og interaktive oplevelser.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~500 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Chinatown street food">
+                        <div class="activity-card-content">
+                            <h4>🍜 Binondo Chinatown</h4>
+                            <p>Verdens ældste Chinatown! Fantastisk street food og autentiske restauranter.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~30-100 PHP per måltid</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80" alt="Manila Bay sunset">
+                        <div class="activity-card-content">
+                            <h4>🌅 Manila Bay Sunset</h4>
+                            <p>Berømte solnedgange! Tag til Baywalk og nyd synet mens solen går ned over vandet.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> Gratis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Davao -->
+            <div id="davao" class="tab-content">
+                <h3 style="color: #667eea; font-size: 2em; margin-bottom: 20px;">📍 DAVAO - Fødselsdagsfejring! (18-26 Januar)</h3>
+                
+                <div class="accommodation-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <h3 style="color: #e74c3c; margin-bottom: 20px;">🏡 Gratis hos Lola!</h3>
+                    
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80" alt="Filipino family home">
+                            <div class="overlay">
+                                <strong>Filippinsk Familieliv</strong>
+                                <p>Autentisk oplevelse hos familie</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80" alt="Davao City">
+                            <div class="overlay">
+                                <strong>Davao City</strong>
+                                <p>Filippinernes største by efter areal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 30px 0;">
+                        <p style="font-size: 1.2em; margin-bottom: 15px;"><strong>📅 Datoer:</strong> 18-26 Januar (8 nætter)</p>
+                        <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>✨ Specielt:</strong> Bor hos Lola - ingen hotelomkostninger!</p>
+                        
+                        <div class="price-tag" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                            💰 GRATIS! Sparer ~8.000 kr! 🎉
+                        </div>
+                    </div>
+
+                    <div class="highlight-box" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); border-color: #e17055;">
+                        <h3 style="margin-bottom: 15px;">🎂 FØDSELSDAG DEN 25. JANUAR! 🎉</h3>
+                        <p style="font-size: 1.1em;">
+                            Fejr fødselsdag med hele familien! Autentisk filippinsk mad, kærlighed, og uforglemmelige minder sammen med Lola og familien. Dette bliver højdepunktet på turen! ❤️
+                        </p>
+                    </div>
+                </div>
+
+                <h3 style="color: #764ba2; font-size: 1.8em; margin: 40px 0 20px 0;">🎯 Ting at lave i Davao</h3>
+                
+                <div class="activity-grid">
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1551244072-5d12893278ab?w=800&q=80" alt="Philippine Eagle">
+                        <div class="activity-card-content">
+                            <h4>🦅 Philippine Eagle Center</h4>
+                            <p>Se landets nationalfugl - den majestætiske filippinske ørn! Bevaringscenter med 36 ørne.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~100 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Tropical beach">
+                        <div class="activity-card-content">
+                            <h4>🏖️ Samal Island</h4>
+                            <p>Kort færgetur til Crystal-clear vand og hvide strande. Pearl Farm Resort og Maxima Aquafun!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> Færge ~50 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt="Nature park mountains">
+                        <div class="activity-card-content">
+                            <h4>🌳 Eden Nature Park</h4>
+                            <p>Smuk bjergresort med ziplines, fiskeri, og fantastisk udsigt. Kølige temperaturer!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~700 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=800&q=80" alt="Crocodile">
+                        <div class="activity-card-content">
+                            <h4>🐊 Davao Crocodile Park</h4>
+                            <p>Filippinernes bedste zoo! Tusindvis af krokodiller, fugle, slanger og meget mere.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~300 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=80" alt="Night market food">
+                        <div class="activity-card-content">
+                            <h4>🌙 Roxas Night Market</h4>
+                            <p>MUST-SEE! Enorm street food marked hver aften. Grillet fisk, kød, frugt - alt hvad hjertet begærer!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~50-200 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?w=800&q=80" alt="Chocolate dessert">
+                        <div class="activity-card-content">
+                            <h4>🍫 Malagos Garden Resort</h4>
+                            <p>Award-winning chokolade! Museum, haver, buffet, fugle shows. Lav din egen chokolade!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~800 PHP inkl. buffet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>🍴 PRØV LOKALE SPECIALITETER:</strong><br>
+                    🥭 Durian (kongen af frugter!) • 🐟 Grillet Tuna • 🥥 Pomelo • 🍇 Lanzones • 🥘 Kinilaw (filippinsk ceviche)
+                </div>
+            </div>
+
+            <!-- Siargao -->
+            <div id="siargao" class="tab-content">
+                <h3 style="color: #667eea; font-size: 2em; margin-bottom: 20px;">📍 SIARGAO - Surfing Paradiset! (26-29 Januar)</h3>
+                
+                <div class="accommodation-card">
+                    <h3 style="color: #667eea; margin-bottom: 20px;">🏄 Budget Condo nær Cloud 9</h3>
+                    
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" alt="Beach condo">
+                            <div class="overlay">
+                                <strong>Moderne Condo i General Luna</strong>
+                                <p>Gå-afstand til Cloud 9 surf spot</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&q=80" alt="Cloud 9 boardwalk">
+                            <div class="overlay">
+                                <strong>Cloud 9 Boardwalk</strong>
+                                <p>Ikonisk landmark i Siargao</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 30px 0;">
+                        <p style="font-size: 1.2em; margin-bottom: 15px;"><strong>📍 Beliggenhed:</strong> General Luna, Siargao (hovedturistområdet)</p>
+                        <p style="font-size: 1.1em; margin-bottom: 15px;"><strong>📅 Datoer:</strong> 26-29 Januar 2026 (3 nætter)</p>
+                        <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>✨ Perfekt til:</strong> Surfing, island hopping, strand-liv!</p>
+                        
+                        <div class="price-tag">
+                            💰 Pris per person: ~1.200 kr (Total: ~2.400 kr delt i 2)
+                        </div>
+
+                        <a href="https://www.airbnb.dk/rooms/1508478509924403694?adults=2&check_in=2026-01-26&check_out=2026-01-29" 
+                           target="_blank" 
+                           class="booking-link">
+                            🔗 Se Airbnb Listing
+                        </a>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>💡 Hvorfor Siargao?</strong><br>
+                        Filippinernes surfing-hovedstad! Perfekte bølger, paradisiske øer, og den mest afslappede stemning. General Luna er centrum for alt det sjove!
+                    </div>
+                </div>
+
+                <h3 style="color: #764ba2; font-size: 1.8em; margin: 40px 0 20px 0;">🎯 Ting at lave i Siargao</h3>
+                
+                <div class="activity-grid">
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1502933691298-84fc14542831?w=800&q=80" alt="Surfer on wave">
+                        <div class="activity-card-content">
+                            <h4>🏄 Cloud 9 Surfing</h4>
+                            <p>FILIPPINERNES BEDSTE SURF SPOT! Perfekt til både begyndere og professionelle. Boardwalk med udsigt!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> Surfbræt 500 PHP/dag, undervisning 1.500 PHP</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Island hopping boat">
+                        <div class="activity-card-content">
+                            <h4>🏝️ Island Hopping Tour</h4>
+                            <p>MUST-DO! Besøg Naked Island, Daku Island og Guyam Island. Inkl. seafood boodle fight lunch!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~1.500 PHP per person</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Blue lagoon">
+                        <div class="activity-card-content">
+                            <h4>💎 Sugba Lagoon</h4>
+                            <p>Instagram-berømt turkisblå lagune! Diving boards, paddle boarding, og flydende platform.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~1.800 PHP inkl. transport</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" alt="Rock pools">
+                        <div class="activity-card-content">
+                            <h4>🌊 Magpupungko Rock Pools</h4>
+                            <p>Fantastiske naturlige tidepools! Besøg ved lavvande for den bedste oplevelse.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> ~50 PHP entre</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=80" alt="White sand beach">
+                        <div class="activity-card-content">
+                            <h4>🏖️ Naked Island</h4>
+                            <p>Lille sandbar UDEN træer - bare dig, sand og turkisblåt vand. Perfekt til fotos!</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Del af island hopping tour</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Scooter on tropical road">
+                        <div class="activity-card-content">
+                            <h4>🛵 Scooter Udflugt</h4>
+                            <p>Lej scooter og udforsk! Kokosskove, skjulte strande, Maasin River palm-gynge.</p>
+                            <p style="margin-top: 10px; color: #667eea;"><strong>Pris:</strong> 350 PHP/dag</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border: none;">
+                    <h3 style="color: white;">🏄 ISLAND HOPPING DETALJER</h3>
+                    <p style="font-size: 1.1em; line-height: 1.8;">
+                        <strong>Hvad er inkluderet:</strong><br>
+                        ✅ Privat båd hele dagen<br>
+                        ✅ Guide & bådfører<br>
+                        ✅ Seafood boodle fight frokost på Daku Island<br>
+                        ✅ 3 øer: Naked, Daku, Guyam<br>
+                        ✅ Snorkeludstyr<br>
+                        ✅ Alt hvad du kan spise frokost!<br>
+                        <br>
+                        <strong>Tips:</strong> Book morgenturen (8-9am start) - færre både og bedre lys til fotos! 📸
+                    </p>
+                </div>
+            </div>
+
+            <!-- Manila Slut -->
+            <div id="manila2" class="tab-content">
+                <h3 style="color: #667eea; font-size: 2em; margin-bottom: 20px;">📍 MANILA - Afslutning (29-30 Januar)</h3>
+                
+                <div class="accommodation-card">
+                    <h3 style="color: #667eea; margin-bottom: 20px;">✈️ Kingsford Hotel Manila</h3>
+                    
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Modern hotel">
+                            <div class="overlay">
+                                <strong>Moderne Hotel</strong>
+                                <p>Praktisk beliggenhed tæt på lufthavnen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 30px 0;">
+                        <p style="font-size: 1.2em; margin-bottom: 15px;"><strong>📍 Beliggenhed:</strong> Tæt på Manila Airport</p>
+                        <p style="font-size: 1.1em; margin-bottom: 15px;"><strong>📅 Dato:</strong> 29-30 Januar (1 nat)</p>
+                        <p style="font-size: 1.1em; margin-bottom: 20px;"><strong>✨ Perfekt til:</strong> Sidste nat før fly hjem</p>
+                        
+                        <div class="price-tag">
+                            💰 Pris per person: ~400 kr
+                        </div>
+
+                        <a href="https://www.booking.com/hotel/ph/kingsford-manila.da.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaD2IAQGYATO4AQfIAQzYAQPoAQH4AQGIAgGoAgG4AtLs-MgGwAIB0gIkOGU4YjhiMTEtYzA5Zi00ZmMwLTgwNzUtZTY1OGMwY2JkOThh2AIB4AIB&sid=4dc885e3e1b62ea7ad70fa32ead62f3b" 
+                           target="_blank" 
+                           class="booking-link">
+                            🔗 Se Booking.com Listing
+                        </a>
+                    </div>
+
+                    <div class="highlight-box">
+                        <strong>✈️ Praktisk!</strong><br>
+                        Let adgang til lufthavnen for jeres morgenflyving den 30. januar. Slap af sidste aften og pak tasken!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interaktiv Budget Calculator -->
+        <div class="section">
+            <h2>💰 Interaktiv Budget Calculator</h2>
+            
+            <div class="budget-calculator">
+                <h3 style="color: white; border: none; margin-bottom: 30px;">Beregn jeres totale udgifter per person</h3>
+                
+                <div class="calculator-row">
+                    <span>🏨 Overnatning Manila (start)</span>
+                    <input type="number" class="calculator-input" id="manila1Cost" value="800" onchange="calculateTotal()"> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>🏡 Overnatning Davao (Gratis!)</span>
+                    <input type="number" class="calculator-input" id="davaoCost" value="0" readonly> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>🏄 Overnatning Siargao</span>
+                    <input type="number" class="calculator-input" id="siargaoCost" value="1200" onchange="calculateTotal()"> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>✈️ Overnatning Manila (slut)</span>
+                    <input type="number" class="calculator-input" id="manila2Cost" value="400" onchange="calculateTotal()"> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>✈️ Indenrigsfly (3 fly)</span>
+                    <input type="number" class="calculator-input" id="flightsCost" value="2400" onchange="calculateTotal()"> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>🍽️ Mad (15 dage × kr/dag)</span>
+                    <input type="number" class="calculator-input" id="foodDaily" value="350" onchange="calculateTotal()"> kr/dag
+                </div>
+                
+                <div class="calculator-row">
+                    <span>🎯 Aktiviteter & Ture</span>
+                    <input type="number" class="calculator-input" id="activitiesCost" value="1500" onchange="calculateTotal()"> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>🚕 Lokal Transport</span>
+                    <input type="number" class="calculator-input" id="transportCost" value="750" onchange="calculateTotal()"> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>🎁 Buffer / Ekstra</span>
+                    <input type="number" class="calculator-input" id="bufferCost" value="700" onchange="calculateTotal()"> kr
+                </div>
+                
+                <div class="calculator-row">
+                    <span>💵 TOTAL PER PERSON</span>
+                    <span id="totalCost" style="font-size: 1.8em;">13.000 kr</span>
+                </div>
+            </div>
+
+            <div style="background: #d4edda; border: 3px solid #28a745; padding: 30px; border-radius: 15px; margin-top: 30px;">
+                <h3 style="color: #155724; margin-bottom: 15px;">✅ Budget Status</h3>
+                <p style="font-size: 1.2em; color: #155724; line-height: 1.8;">
+                    <strong>Dit budget:</strong> 8.000 kr<br>
+                    <strong>Beregnet udgift:</strong> <span id="totalCost2">13.000 kr</span><br>
+                    <strong>Forskel:</strong> <span id="difference">-5.000 kr</span><br>
+                    <br>
+                    💡 Med smart planlægning (lokale restauranter, offentlig transport) kan I komme tættere på budget!
+                </p>
+            </div>
+        </div>
+
+        <!-- Vejr Info -->
+        <div class="section">
+            <h2>🌤️ Vejr Information</h2>
+            
+            <div class="info-grid">
+                <div class="weather-widget">
+                    <div class="icon">☀️</div>
+                    <div class="temp">27-30°C</div>
+                    <h3 style="color: white;">Manila</h3>
+                    <p>Solrigt og varmt</p>
+                    <p style="margin-top: 10px;">Januar er tørsæson - perfekt vejr! 🌞</p>
+                </div>
+
+                <div class="weather-widget">
+                    <div class="icon">🌤️</div>
+                    <div class="temp">26-29°C</div>
+                    <h3 style="color: white;">Davao</h3>
+                    <p>Behageligt & solrigt</p>
+                    <p style="margin-top: 10px;">Ingen tyfoner i januar!</p>
+                </div>
+
+                <div class="weather-widget">
+                    <div class="icon">🌊</div>
+                    <div class="temp">28-31°C</div>
+                    <h3 style="color: white;">Siargao</h3>
+                    <p>Perfekt surf-vejr</p>
+                    <p style="margin-top: 10px;">Gode bølger og sol! 🏄</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>👕 Hvad skal I pakke?</strong><br>
+                Let sommertøj, badetøj (2 sæt), sandaler, solcreme SPF 50+, solhat, og en let jakke til aircondition!
+            </div>
+        </div>
+
+        <!-- Pakkeliste med checkboxes -->
+        <div class="section">
+            <h2>✅ Interaktiv Pakkeliste</h2>
+            
+            <div class="checklist">
+                <h3 style="color: #667eea; margin-bottom: 20px;">📄 Dokumenter & Penge</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="passport">
+                    <label for="passport">Pas (gyldig 6+ måneder efter hjemkomst)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="tickets">
+                    <label for="tickets">Flybilletter (print + digital)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="insurance">
+                    <label for="insurance">Rejseforsikring dokumenter</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cards">
+                    <label for="cards">Kreditkort + ekstra kontanter (USD/EUR)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="bookings">
+                    <label for="bookings">Hotelbookinger (print-outs)</label>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h3 style="color: #667eea; margin-bottom: 20px;">👕 Tøj</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="tshirts">
+                    <label for="tshirts">T-shirts / Tank tops (7-10 stk)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="shorts">
+                    <label for="shorts">Shorts / Lette bukser (4-5 stk)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="swimwear">
+                    <label for="swimwear">Badetøj (2 sæt)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="sandals">
+                    <label for="sandals">Sandaler / Flip-flops</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="sneakers">
+                    <label for="sneakers">Sneakers / Walking sko</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="jacket">
+                    <label for="jacket">Let jakke (til aircondition)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="hat">
+                    <label for="hat">Solhat / Kasket</label>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h3 style="color: #667eea; margin-bottom: 20px;">🏖️ Strand & Aktiviteter</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="sunscreen">
+                    <label for="sunscreen">Solcreme SPF 50+ (MEGET VIGTIGT!)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="sunglasses">
+                    <label for="sunglasses">Solbriller</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="waterproof">
+                    <label for="waterproof">Vandtæt pose til telefon</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="gopro">
+                    <label for="gopro">GoPro / Vandtæt kamera (valgfrit)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="towel">
+                    <label for="towel">Hurtigtørrende håndklæde</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="snorkel">
+                    <label for="snorkel">Snorkelsæt (valgfrit - kan lejes)</label>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h3 style="color: #667eea; margin-bottom: 20px;">📱 Elektronik</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="phone">
+                    <label for="phone">Mobiltelefon + oplader</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="powerbank">
+                    <label for="powerbank">Power bank</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="adapter">
+                    <label for="adapter">Universal adapter (Type A/B til Filippinerne)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="camera">
+                    <label for="camera">Kamera (valgfrit)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="headphones">
+                    <label for="headphones">Høretelefoner</label>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <h3 style="color: #667eea; margin-bottom: 20px;">💊 Medicin & Hygiejne</h3>
+                <div class="checklist-item">
+                    <input type="checkbox" id="medicine">
+                    <label for="medicine">Personlig medicin</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="mosquito">
+                    <label for="mosquito">Myggespray med DEET</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="sanitizer">
+                    <label for="sanitizer">Håndsprit</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="firstaid">
+                    <label for="firstaid">Plaster / Førstehjælpskasse</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="stomach">
+                    <label for="stomach">Mavemedicin (Imodium)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="toiletries">
+                    <label for="toiletries">Toiletartikler (tandpasta, shampoo, etc)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transport Info -->
+        <div class="section">
+            <h2>✈️ Transport Information</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon">✈️</div>
+                    <h3>International Fly</h3>
+                    <p><strong>København → Manila</strong></p>
+                    <p>15. januar</p>
+                    <p style="margin-top: 10px; color: #667eea;"><strong>6.000-8.000 kr</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Air China, Etihad, Qatar Airways</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">🛫</div>
+                    <h3>Manila → Davao</h3>
+                    <p><strong>18. januar</strong></p>
+                    <p>~2 timer flyvetid</p>
+                    <p style="margin-top: 10px; color: #667eea;"><strong>~600 kr</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Cebu Pacific, Philippine Airlines</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">🛫</div>
+                    <h3>Davao → Siargao</h3>
+                    <p><strong>26. januar</strong></p>
+                    <p>~1 time flyvetid</p>
+                    <p style="margin-top: 10px; color: #667eea;"><strong>~600 kr</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Cebu Pacific</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">🛫</div>
+                    <h3>Siargao → Manila</h3>
+                    <p><strong>29. januar</strong></p>
+                    <p>~2 timer flyvetid</p>
+                    <p style="margin-top: 10px; color: #667eea;"><strong>~1.200 kr</strong></p>
+                    <p style="margin-top: 10px; font-size: 0.9em;">Cebu Pacific, Philippine Airlines</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">✈️</div>
+                    <h3>Manila → København</h3>
+                    <p><strong>30. januar</strong></p>
+                    <p>Hjemrejse</p>
+                    <p style="margin-top: 10px; color: #667eea;"><strong>Inkluderet i international billet</strong></p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon">🛵</div>
+                    <h3>Lokal Transport</h3>
+                    <p><strong>På Filippinerne</strong></p>
+                    <p>Tricycle, Jeepney, Grab, Scooter</p>
+                    <p style="margin-top: 10px; color: #667eea;"><strong>~750 kr for 15 dage</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips & Tricks -->
+        <div class="section">
+            <h2>💡 PRO Tips & Must-Know</h2>
+            
+            <div class="activity-grid">
+                <div class="highlight-box">
+                    <h4 style="color: #e74c3c;">💱 Penge & Valuta</h4>
+                    <p>1 DKK ≈ 8 PHP</p>
+                    <p style="margin-top: 10px;">Hæv kontanter i Manila. ATM'er er begrænsede på Siargao! De fleste steder tager kun kontanter.</p>
+                </div>
+
+                <div class="highlight-box" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <h4 style="color: #e74c3c;">📱 Internet & SIM</h4>
+                    <p>Køb lokal SIM i lufthavnen</p>
+                    <p style="margin-top: 10px;">Globe eller Smart (200-500 PHP). Få 4G data til navigation og kommunikation!</p>
+                </div>
+
+                <div class="highlight-box" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+                    <h4 style="color: #e74c3c;">🍴 Mad Tips</h4>
+                    <p>Lokale restauranter: 30-60 kr/måltid</p>
+                    <p style="margin-top: 10px;">Street food er FANTASTISK og sikkert! Prøv balut, lechon, halo-halo. Drik kun flaskevand!</p>
+                </div>
+
+                <div class="highlight-box" style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);">
+                    <h4 style="color: #155724;">🏄 Surfing Tips</h4>
+                    <p>Surfboards: 500 PHP/dag</p>
+                    <p style="margin-top: 10px;">Surflektion anbefales hvis I er begyndere! Instruktører er super tålmodige. Surf ved høj tidevand!</p>
+                </div>
+
+                <div class="highlight-box" style="background: linear-gradient(135deg, #cfe2ff 0%, #9ec5fe 100%);">
+                    <h4 style="color: #084298;">📸 Foto Spots</h4>
+                    <p>Naked Island & Cloud 9 = Instagram gold!</p>
+                    <p style="margin-top: 10px;">Tag til island hopping tidligt om morgenen for bedst lys. Bring vandtæt cover til telefonen!</p>
+                </div>
+
+                <div class="highlight-box" style="background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%);">
+                    <h4 style="color: #842029;">⚠️ Sikkerhed</h4>
+                    <p>Filippinerne er generelt sikre!</p>
+                    <p style="margin-top: 10px;">Pas på dine ting i Manila. Brug Grab (ikke random taxis). Davao er EN AF DE SIKRESTE byer!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Countdown & Call to Action -->
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border: none; font-size: 3em;">🎉 KLAR TIL EVENTYRET? 🎉</h2>
+            <p style="font-size: 1.5em; margin: 30px 0; line-height: 1.8;">
+                15 dage fyldt med:<br>
+                🏄 World-class surfing<br>
+                🏝️ Paradisiske øer<br>
+                🎂 Fødselsdagsfest med familien<br>
+                🍜 Fantastisk mad<br>
+                📸 Uforglemmelige minder<br>
+            </p>
+            
+            <div style="margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.2); border-radius: 15px;">
+                <h3 style="color: white; margin-bottom: 20px;">📋 Næste Skridt:</h3>
+                <p style="font-size: 1.2em; line-height: 2;">
+                    ✅ Book internationale fly (snarest!)<br>
+                    ✅ Book Airbnb'er (links ovenfor)<br>
+                    ✅ Køb rejseforsikring<br>
+                    ✅ Tjek pasgylighed<br>
+                    ✅ Start at pakke!<br>
+                </p>
+            </div>
+
+            <p style="font-size: 1.3em; margin-top: 40px;">
+                🌴 Manila → Davao → Siargao 🌴
+            </p>
+            <p style="font-size: 0.9em; margin-top: 30px; opacity: 0.8;">
+                Lavet med ❤️ til en episk Filippinerne-tur
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for interaktivitet -->
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const tripDate = new Date('2026-01-15T00:00:00');
+            const now = new Date();
+            const diff = tripDate - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            document.getElementById('countdown').innerHTML = 
+                `⏰ ${days} dage og ${hours} timer til afgang! ✈️`;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000); // Update every minute
+
+        // Tab functionality
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            const tabs = document.getElementsByClassName('tab');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+            
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Budget calculator
+        function calculateTotal() {
+            const manila1 = parseFloat(document.getElementById('manila1Cost').value) || 0;
+            const davao = parseFloat(document.getElementById('davaoCost').value) || 0;
+            const siargao = parseFloat(document.getElementById('siargaoCost').value) || 0;
+            const manila2 = parseFloat(document.getElementById('manila2Cost').value) || 0;
+            const flights = parseFloat(document.getElementById('flightsCost').value) || 0;
+            const foodDaily = parseFloat(document.getElementById('foodDaily').value) || 0;
+            const activities = parseFloat(document.getElementById('activitiesCost').value) || 0;
+            const transport = parseFloat(document.getElementById('transportCost').value) || 0;
+            const buffer = parseFloat(document.getElementById('bufferCost').value) || 0;
+            
+            const foodTotal = foodDaily * 15; // 15 days
+            const total = manila1 + davao + siargao + manila2 + flights + foodTotal + activities + transport + buffer;
+            
+            document.getElementById('totalCost').innerHTML = total.toLocaleString('da-DK') + ' kr';
+            document.getElementById('totalCost2').innerHTML = total.toLocaleString('da-DK') + ' kr';
+            
+            const budget = 8000;
+            const difference = budget - total;
+            const diffElement = document.getElementById('difference');
+            diffElement.innerHTML = difference.toLocaleString('da-DK') + ' kr';
+            
+            if (difference < 0) {
+                diffElement.style.color = '#e74c3c';
+            } else {
+                diffElement.style.color = '#27ae60';
+            }
+        }
+
+        // Initialize calculator
+        calculateTotal();
+
+        // Image modal
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <span class="close-modal">&times;</span>
+            <div class="modal-content">
+                <img src="" alt="Full size">
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        const closeModal = modal.querySelector('.close-modal');
+        closeModal.onclick = () => modal.style.display = 'none';
+        modal.onclick = (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = 'block';
+                modal.querySelector('img').src = this.src;
+            };
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print button
+        function printPage() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
